@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi blog</title>
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/5ad9b15f31.js" crossorigin="anonymous"></script>
+</head>
+    <!-- <img src="./recursos/undraw_campfire_s-6-y4.svg" alt="" class="around-the-word"> -->
+    <header>
+        <section class="social-media">
+            <div class="contain-sm">
+                <a href="">Instagram <i class="fab fa-instagram"></i></a>
+                <a href="">Youtube <i class="fab fa-youtube"></i></a>
+                <a href="">Twitter <i class="fab fa-twitter"></i></a>
+                <a href="">Twitch <i class="fab fa-twitch"></i></a>
+            </div>
+            <div class="contain-sm-small">
+                <a href=""><i class="fab fa-instagram"></i></a>
+                <a href=""><i class="fab fa-youtube"></i></a>
+                <a href=""><i class="fab fa-twitter"></i></a>
+                <a href=""><i class="fab fa-twitch"></i></a>
+            </div>
+        </section>
+        <nav>
+            <div class="aboutme">
+                <section class="miblog">
+                    <a href="http://localhost:4000/rooms">
+                        <span>Rooms </span> <i class="fas fa-chevron-circle-right"></i>
+                    </a>
+                </section>
+                <section>
+                    <a href="http://localhost:8000/flexs">Quiero publicar algo <i class="fa-solid fa-circle-plus"></i></a>
+                </section>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-home">
+        <div class="main-post">
+            <h1>Crea una publicación</h1>
+            <form action="/rooms" method="POST" class="fromnews">
+                <section>
+                    <label for="name">Nombre de usuario:</label>
+                    <input type="text" placeholder="username" name="name" id="name" required>
+                </section>
+                <section>
+                    <label for="namePlace">Nombre del lugar:</label>
+                    <input type="text" placeholder="Nombre del Lugar" name="namePlace" id="namePlace" required>
+                </section>
+                <section>
+                    <label for="price">Precio:</label>
+                    <input type="number" name="price" id="price" min="1" required value="1">
+                </section>
+                <section class="opciones">
+                    <div>
+                        <label for="huespedes">Huespedes:</label>
+                        <input type="number" name="huespedes" id="huespedes" min="1" required value="1">
+                    </div>
+                    <div>
+                        <label for="habitaciones">Habitaciones:</label>
+                        <input type="number" name="habitaciones" id="habitaciones" min="1" required value="1">
+                    </div>
+                    <div>
+                        <label for="camas">Camas:</label>
+                        <input type="number" name="camas" id="camas" min="1" required value="1">
+                    </div>
+                    <div>
+                        <label for="bath">Baños:</label>
+                        <input type="number" name="bath" id="bath" min="1" required value="1">
+                    </div>
+                </section>
+                <section class="opciones2">
+                    <div>
+                        <label for="wifi">Wifi</label>
+                        <input type="checkbox" id="wifi" name="wifi" value="true">
+                    </div>
+                    <div>
+                        <label for="tv">Tv</label>
+                        <input type="checkbox" id="tv" name="tv" value="true">
+                    </div>
+                    <div>
+                        <label for="cocina">Cocina</label>
+                        <input type="checkbox" id="cocina" name="cocina" value="true">
+                    </div>
+                </section>
+                <section>
+                    <label for="img">Url de la imágen:</label>
+                    <br>
+                    <input type="text" id="img" name="img">
+                </section>
+                <section>
+                    <label for="comentario">Escribe un comentario:</label>
+                    <br>
+                    <textarea name="comentario" id="comentario" cols="30" rows="5" required></textarea>
+                </section>
+                <div class="formbutton">
+                    <button>Publicar <i class="fa-solid fa-circle-check"></i></button>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

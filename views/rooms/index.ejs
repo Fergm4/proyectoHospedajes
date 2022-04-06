@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi blog</title>
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/5ad9b15f31.js" crossorigin="anonymous"></script>
+</head>
+    <!-- <img src="./recursos/undraw_campfire_s-6-y4.svg" alt="" class="around-the-word"> -->
+    <header>
+        <section class="social-media">
+            <div class="contain-sm">
+                <a href="">Instagram <i class="fab fa-instagram"></i></a>
+                <a href="">Youtube <i class="fab fa-youtube"></i></a>
+                <a href="">Twitter <i class="fab fa-twitter"></i></a>
+                <a href="">Twitch <i class="fab fa-twitch"></i></a>
+            </div>
+            <div class="contain-sm-small">
+                <a href=""><i class="fab fa-instagram"></i></a>
+                <a href=""><i class="fab fa-youtube"></i></a>
+                <a href=""><i class="fab fa-twitter"></i></a>
+                <a href=""><i class="fab fa-twitch"></i></a>
+            </div>
+        </section>
+        <nav>
+            <div class="aboutme">
+                <section class="miblog">
+                    <a href="/">
+                        <span>Home</span> <i class="fa-solid fa-house"></i>
+                    </a>
+                </section>
+                <section>
+                    <a href="http://localhost:4000/rooms/new">Quiero publicar algo <i class="fa-solid fa-circle-plus"></i></a>
+                </section>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-home main-post">
+        <h1>Publicaciones hechas por los usuarios<br> Publica ahora </h1>
+        <div class="main-container">
+            <ul>
+                <% for(let room of rooms) {%>
+                    <div class="lis" style="background-image: url('<%= room.img %>'); height: 550px; background-position: center; background-size: cover;">
+<!--                         <img src="<%= room.img %> " alt="" width="100%">  -->
+                        <div class="listyle">
+                            <li><b><%= room.namePlace %> </b> &#183 
+                                <%    if(room.wifi === true){ %>
+                                    <i class="fa-solid fa-wifi" style="color: #02c39a;"></i>
+                               <%    } else{ %>
+                                    <i class="fa-solid fa-wifi" style="color: grey;"></i>
+                                <% } %> 
+                                <%    if(room.tv === true){ %>
+                                    <i class="fa-solid fa-tv" style="color: #02c39a;"></i>
+                               <%    } else{ %>
+                                <i class="fa-solid fa-tv" style="color: grey;"></i>
+                                <% } %> 
+                                <%    if(room.cocina === true){ %>
+                                    <i class="fa-solid fa-kitchen-set" style="color: #02c39a;"></i>
+                               <%    } else{ %>
+                                <i class="fa-solid fa-kitchen-set" style="color: grey;"></i>
+                                <% } %><br> $<%= room.price %> / La noche <br> </li>
+                            <li><%= room.huespedes %> huespedes &#183 <%= room.habitaciones %> habitaciones &#183 <%= room.camas %> camas &#183 <%= room.bath %> Baños</li>
+                                <form action="/rooms/<%= room._id %>?_method=DELETE" method="POST" class="formdelete detailsdelete">
+                                    <a href="http://localhost:4000/rooms/<%= room.id %>" class="details">Detalles <i class="fa-solid fa-circle-info"></i></a>
+                                    <a href="http://localhost:4000/rooms/<%= room.id %>/edit" class="details">Editar <i class="fa-solid fa-pen-to-square"></i></a>
+                                    <button class="details">Delete <i class="fa-solid fa-trash-can"></i></button>
+                                </form>
+                        </div>
+                    </div>
+                <% }%>  
+            </ul>
+        </div>
+    </main>  
+</body>
+</html>
